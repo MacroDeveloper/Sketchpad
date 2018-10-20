@@ -4,7 +4,6 @@
 #define KEY_DOWN(VK_NONAME) ((GetAsyncKeyState(VK_NONAME) & 0x8000) ? 1:0)
 #define CLS color(112),system("cls");
 using namespace std;
-////////////////////////////////////////////////////////////////////////////////////////
 struct Button{
     int x,y,color;
     const char *name;
@@ -43,25 +42,21 @@ bool Preserve(Button A){
     }
     return 0;
 }
-////////////////////////////////////////////////////////////////////////////////////////
 int cc=1;
 int Rcolor();
 void pout(int x,int y,int c,string s);
 int main(){
     int k;
-    //////////////////////////// 
     HANDLE handle=GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_CURSOR_INFO CursorInfo;
     GetConsoleCursorInfo(handle, &CursorInfo);
     CursorInfo.bVisible=false;
     SetConsoleCursorInfo(handle, &CursorInfo);
-    /////////////////////
     Button Px[105][105];
     Button blue,red,yellow,white,green,black,end,save,read,cls;
     srand((unsigned)time(NULL));
-    system("title Simple Drawing Board");
+    system("title Sketchpad Github:MacroDeveloper/Sketchpad");
     system("mode con cols=74 lines=27");
-    //system("color 70");
     for(int i=1;i<=20;i++){
         for(int j=1;j<=35;j++){
             Px[i][j]=NewButton(i,j,112,"  ");
@@ -123,7 +118,6 @@ int main(){
                 }
             }
         }
-        //_sleep(40);
     }
     return 0;
 }
